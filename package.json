@@ -1,0 +1,54 @@
+{
+  "name": "pi-toonify",
+  "version": "0.1.0",
+  "description": "Rewrite JSON/YAML tool and command output as TOON to save tokens. Pi extension + `tnfy` CLI for other agent harnesses",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "toon",
+    "json",
+    "yaml",
+    "agent",
+    "cli"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "tnfy": "./cli.js"
+  },
+  "files": [
+    "index.ts",
+    "core.js",
+    "cli.js",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node check.ts"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "dependencies": {
+    "@toon-format/toon": "^4.4.0",
+    "yaml": "^2.9.1"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alfar-Lab/pi-toonify.git"
+  },
+  "homepage": "https://github.com/Alfar-Lab/pi-toonify"
+}
