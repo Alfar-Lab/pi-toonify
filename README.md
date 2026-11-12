@@ -26,6 +26,12 @@ tnfy <command> [args...]   run command, print stdout as TOON if it is JSON/YAML,
 
 Falls back to the original output when it is not JSON/YAML, TOON is not shorter, or the command exits non-zero. Exit code and stderr pass through.
 
+### With other command prefixes (e.g. rtk)
+
+`tnfy` must be the outermost wrapper (`tnfy rtk <cmd>`) or at the end of a pipe (`<cmd> | tnfy`). `rtk tnfy <cmd>` disables rtk's filter, and a rewrite hook does not recognize `tnfy <cmd>`. When the order cannot be guaranteed, skip `tnfy` and run the command directly. Pipe form reports `tnfy`'s exit code; use `set -o pipefail` if it matters.
+
+The pi extension does not have this issue: it converts the final tool result after every prefix has run.
+
 Copy `skills/toon/SKILL.md` into the harness's skill folder, e.g. Claude Code:
 
 ```bash
